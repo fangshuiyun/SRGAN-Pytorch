@@ -1,5 +1,5 @@
 This is an unofficial implementation of [《SRGAN:Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network》](https://arxiv.org/abs/1609.04802)。实现了4倍的超分！
-!<img src="./image/SRGAN.png" width="800" />
+<img src="./image/SRGAN.png" width="800" />
 # My Environment：
 pytorch==1.10.0+cu102<br>
 torchaudio==0.10.0+cu102<br>
@@ -29,7 +29,9 @@ Pillow==10.1.0<br>
 ```
 # Train
 开始训练：<br>
-`python main.py`<br>
+```python
+python main.py
+```
 注：没有设置命令行功能，想要更改参数，请在main.py文件中直接修改。如下：
 ```python
 parser.add_argument('--train_dataset', default="./datasets/DIV2K_train_HR", type=str,
@@ -45,46 +47,55 @@ parser.add_argument('--batch_size', default=16, type=int, help='批次大小，�
 显存不足+其他资源不足怎么办？如下更改：
 
 #### 更改batch_size：
-`parser.add_argument('--batch_size', default=16, type=int, help='批次大小，显存不足可以调小一点')
+```python
+parser.add_argument('--batch_size', default=16, type=int, help='批次大小，显存不足可以调小一点')
 #16不行就8，8不行就4，再不行就2，不是吧不是吧，你这也太小了吧！`
-
+```
 #### cpu资源不足怎么办？
-`train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=16, pin_memory=True, drop_last=True)
-`#删掉多线程num_workers等等，变成如下<br>
-`train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True)
-`#其他的DataLoader也是如此<br>
-
+```python
+train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=16, pin_memory=True, drop_last=True)
+#删掉多线程num_workers等等，变成如下
+train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True)
+#其他的DataLoader也是如此
+```
 #### 减少模型参数：可以考虑删掉几层卷积或者减小特征通道，懂得都懂嗷！
 
 #### 节约时间：
-`parser.add_argument('--epochs', default=100, type=int, help='总训练轮数')
-`#那就少训练几轮呗<br>
+```python
+parser.add_argument('--epochs', default=100, type=int, help='总训练轮数')
+#那就少训练几轮呗
+```
 
 #### 图像大小：
-```
+```python
 transform = transforms.Compose([
             transforms.Resize(400),
-            transforms.CenterCrop(400),#显存不足就缩小图像尺寸，400是高分辨率图像，100->400
+            transforms.CenterCrop(400),#显存不足就缩小图像尺寸，400是Resize高分辨率图像
             transforms.ToTensor()    #400太大就200，200太大就100，100不行就88，不会吧不会吧，这么小的哇！
 ])
 ```
 #### 训练和验证的各项指标变化：
-PSNR：平均峰值信噪比(MSE越小，则PSNR越大；所以PSNR越大，代表着图像质量越好。)；SSIM：平均结构相似度指数(0-1之间，1说明两张图一模一样)
-!<img src="./image/train_results.png" width="800" />
+PSNR：平均峰值信噪比(MSE越小，则PSNR越大；所以PSNR越大，代表着图像质量越好。)；SSIM：平均结构相似度指数(0-1之间，1说明两张图一模一样)。
+<img src="./image/train_results.png" width="800" />
+
 # Test
 开始测试：<br>
-`python test.py`<br>
+```python
+python test.py
+```
 我的测试集和验证集是一样的，没办法，不专业嘛！不同的地方是，训练期间的验证集是跟训练集一样Resize(400)然后再进行各个指标的评估；测试阶段并没有进行Resize操作，直接输入原图HR，下采样4倍LR，在输入模型输出Fake_HR,然后对(Fake_HR,原图HR)进行各项指标的评估。当然原图尺寸大，对显存和资源要求高，请参考上文丐版训练计划，要么我说啊,就别测试了，玩玩demo不香嘛。
 #### 测试指标变化：
 一共99张图片，每张图片的PSNR和SSIM。
-!<img src="./image/test_results.png" width="800" />
+<img src="./image/test_results.png" width="800" />
 
 |  平均指标   | PSNR  | SSIM |
 |:-------:|:-----:|:----:|
 | Average | 73.40 | 0.72 |
 
 # Demo
-`python demo.py`<br>
+```python
+python demo.py
+```
 注：模型参数和图片我都上传了，可以玩一玩，感谢二次元朋友亲情图片贡献！<br>
 <p float="left">
   <img src="./image/1.jpg" width="300" />
