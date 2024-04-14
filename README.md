@@ -102,8 +102,8 @@ python demo.py
   <img src="./demo_result/1.jpg" width="300" /> 
 </p>
 <p float="left">
-  <em style="padding-left: 100px;">分辨率: 400×512</em>
-  <em style="padding-left: 200px;">分辨率: 1600×2048</em>
+  <em style="padding-left: 100px;">左分辨率: 400×512</em>
+  <em style="padding-left: 200px;">->右分辨率: 1600×2048</em>
 </p>
 
 <p float="left">
@@ -111,8 +111,8 @@ python demo.py
   <img src="./demo_result/2.jpg" width="300" /> 
 </p>
 <p float="left">
-  <em style="padding-left: 100px;">分辨率: 300×629</em>
-  <em style="padding-left: 200px;">分辨率: 1200×2516</em>
+  <em style="padding-left: 100px;">左分辨率: 300×629</em>
+  <em style="padding-left: 200px;">->右分辨率: 1200×2516</em>
 </p>
 
 <p float="left">
@@ -120,8 +120,8 @@ python demo.py
   <img src="./demo_result/0080x4.png" width="300" /> 
 </p>
 <p float="left">
-  <em style="padding-left: 100px;">分辨率: 510×333</em>
-  <em style="padding-left: 200px;">分辨率: 2040×1332</em>
+  <em style="padding-left: 100px;">左分辨率: 510×333</em>
+  <em style="padding-left: 200px;">->右分辨率: 2040×1332</em>
 </p>
 
 <p float="left">
@@ -129,8 +129,8 @@ python demo.py
   <img src="./demo_result/0208x4.png" width="300" /> 
 </p>
 <p float="left">
-  <em style="padding-left: 100px;">分辨率: 510×339</em>
-  <em style="padding-left: 200px;">分辨率: 2040×1356</em>
+  <em style="padding-left: 100px;">左分辨率: 510×339</em>
+  <em style="padding-left: 200px;">->右分辨率: 2040×1356</em>
 </p>
 
 
