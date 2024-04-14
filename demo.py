@@ -8,7 +8,7 @@ from torchvision.transforms import ToTensor, ToPILImage
 parser = argparse.ArgumentParser(description='Test Single Image')
 parser.add_argument('--upscale_factor', default=4, type=int, choices=[2, 4, 8],
                     help='用于指定超分辨率的放大因子，默认为4')
-parser.add_argument('--image_path', default='./image/1.jpg', type=str,
+parser.add_argument('--image_path', default='./image/2.jpg', type=str,
                     help='图片路径')
 parser.add_argument('--model_checkpoint', default='./save_checkpoint/netG_epoch_4_100.pth', type=str,
                     help='模型参数')
