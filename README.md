@@ -8,24 +8,24 @@ numpy==1.24.4<br>
 pandas==2.0.3<br>
 tqdm==4.66.1<br>
 Pillow==10.1.0<br>
-# Datesets:
+# Datasets:
 [DIV2K](https://data.vision.ee.ethz.ch/cvl/DIV2K/)
 
 目录结构:(注:我只下载了DIV2K_train_HR和DIV2K_valid_HR两个图像文件，至于低分辨率图像，我是直接通过高分辨率图像下采样得到的--不是很专业，玩一下嘛，别骂了别骂了)<br>
 ```
-├─datasets<br>
-│  ├─DIV2K_train_HR<br>
-│  │      0001.png<br>
-│  │      0002.png<br>
-│  │      0003.png<br>
-│  │      0004.png<br>
-│  │      ......<br>
-│  └─DIV2K_valid_HR<br>
-│          0801.png<br>
-│          0802.png<br>
-│          0803.png<br>
-│          0804.png<br>
-│  │      ......<br>
+├─datasets
+│  ├─DIV2K_train_HR
+│  │      0001.png
+│  │      0002.png
+│  │      0003.png
+│  │      0004.png
+│  │      ......
+│  └─DIV2K_valid_HR
+│          0801.png
+│          0802.png
+│          0803.png
+│          0804.png
+│  │      ......
 ```
 # Train
 开始训练：<br>
